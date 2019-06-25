@@ -18,6 +18,7 @@ document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
     console.log(userGuess);
     // Randomly chooses a choice from the options array. This is the Computer's guess.
+    // console.log(guesses_now);
 
     if (letters.includes(userGuess)) {
         function random_character() {
@@ -26,7 +27,7 @@ document.onkeyup = function (event) {
         }
         var computerGuess = random_character();
 
-        // Only run the following code block if the user presses "r" or "p" or "s".
+        
         if (userGuess === computerGuess) {
             directionsText.textContent = "";
             wins++;
@@ -41,6 +42,15 @@ document.onkeyup = function (event) {
             losses++;
             lossesText.textContent = "Losses: " + losses;
             emotions.textContent = "Nope! Keep going!";
+            if (guesses_left>=0) {
+                guessesLeft.textContent = "Guesses Left: " + guesses_left;
+                guesses_left --;
+            }
+            guesses_now.push(userGuess)
+            userChoiceArray.textContent = "Your guesses so far: " + guesses_now;
+
+
+
 
 
 
