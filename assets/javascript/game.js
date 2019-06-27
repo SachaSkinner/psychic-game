@@ -13,6 +13,12 @@ var lossesText = document.getElementById("losses-text");
 var guessesLeft = document.getElementById("guesses-left");
 var userChoiceArray = document.getElementById("user-guesses");
 var emotions = document.getElementById("emotions");
+var button = "<button onclick=\"resetGame()\">Try again</button>";
+
+function random_character() {
+    return letters.substr(Math.floor(Math.random() * letters.length), 1);
+}
+var computerGuess = random_character();
 // main function 
 document.onkeyup = function (event) {
     // String.fromCharCode(event.keyCode).toLowerCase();
@@ -21,14 +27,7 @@ document.onkeyup = function (event) {
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     // console.log(guesses_now);
 
-    if (letters.includes(userGuess) && gameInProgress === true) {
-        function random_character() {
-
-            return letters.substr(Math.floor(Math.random() * letters.length), 1);
-        }
-        var computerGuess = random_character();
-
-        
+    if (letters.includes(userGuess) && gameInProgress === true) {        
         if (userGuess === computerGuess) {
             directionsText.textContent = "";
             wins++;
@@ -36,6 +35,8 @@ document.onkeyup = function (event) {
             // guessesLeft = 20;
             emotions.textContent = "Woohoo!! You got it!";
             gameInProgress = false;
+            directionsText.innerHTML = button;
+            userChoiceArray.textContent = "The cool letter was " + computerGuess.toUpperCase();
         }
 
         else if (userGuess !== computerGuess) {
@@ -51,16 +52,38 @@ document.onkeyup = function (event) {
             
             if (guesses_left <= 0) {                
                 gameInProgress = false;
-            
+                directionsText.innerHTML = button;
+                userChoiceArray.textContent = "The lucky letter was " + computerGuess.toUpperCase();
+                emotions.textContent = "";
+                
+
 
             }
-        
-
-            
-
-
         }
     }
+}
+
+function resetGame(){
+    
+
+    // button =  directionsText;
+    
+  
+    wins = 0;
+    losses = 0;
+    guesses_left = 20;
+    guesses_now = [];
+    gameInProgress = true;
+
+    directionsText.textContent = "Press any letter to start playing with me!";
+    winsText.textContent = "";
+    userChoiceArray.textContent = "";
+    emotions.textContent = "";
+    lossesText.textContent = "";
+    guessesLeft.textContent = "";
+
+    computerGuess = random_character();
+    
 }
 
 
