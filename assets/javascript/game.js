@@ -1,8 +1,9 @@
 // variables for wins, losses, guesses left and so far now , and letters
 var wins = 0;
 var losses = 0;
-var guesses_left = 10;
+var guesses_left = 20;
 var guesses_now = [];
+var gameInProgress = true;
 var letters = "abcdefghijklmnopqrstuvwxyz"
 // connections with html file by id
 // diractions - it will disappear when a key is pressed
@@ -20,7 +21,7 @@ document.onkeyup = function (event) {
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     // console.log(guesses_now);
 
-    if (letters.includes(userGuess)) {
+    if (letters.includes(userGuess) && gameInProgress === true) {
         function random_character() {
 
             return letters.substr(Math.floor(Math.random() * letters.length), 1);
@@ -32,26 +33,30 @@ document.onkeyup = function (event) {
             directionsText.textContent = "";
             wins++;
             winsText.textContent = "Wins: " + wins;
-            guessesLeft = 10;
+            // guessesLeft = 20;
             emotions.textContent = "Woohoo!! You got it!";
-
+            gameInProgress = false;
         }
 
         else if (userGuess !== computerGuess) {
             directionsText.textContent = "";
             losses++;
+            guesses_left--;
             lossesText.textContent = "Losses: " + losses;
             emotions.textContent = "Nope! Keep going!";
-            if (guesses_left>=0) {
-                guessesLeft.textContent = "Guesses Left: " + guesses_left;
-                guesses_left --;
-            }
+            guessesLeft.textContent = "Guesses Left: " + guesses_left;
+            // needed to put pushing before the next line
             guesses_now.push(userGuess)
             userChoiceArray.textContent = "Your guesses so far: " + guesses_now;
+            
+            if (guesses_left <= 0) {                
+                gameInProgress = false;
+            
 
+            }
+        
 
-
-
+            
 
 
         }
