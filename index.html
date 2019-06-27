@@ -9,10 +9,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-   
+
 </head>
 
 <body>
+    <audio src="assets/my_music.mp3" autoplay>
+        <p>If you are reading this, it is because your browser does not support the audio element. </p>
+        <embed src="assets/my_music.mp3" width="180" height="90" hidden="true" />
+    </audio>
     <div class="my_container">
         <h1>The Psychic Game</h1>
         <h3>Guess what letter I am thinking of!... :)</h3>
@@ -22,7 +26,7 @@
         <p id="losses-text"> </p>
         <p id="guesses-left"> </p>
         <p id="user-guesses"></p>
-        <img id="img_yes" class="img_yes" src="assets/images/yes.jpg"> 
+        <img id="img_yes" class="img_yes" src="assets/images/yes.jpg">
         <img id="img_no" class="img_no" src="assets/images/cutie1.jpg">
     </div>
 

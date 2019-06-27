@@ -59,6 +59,7 @@ document.onkeyup = function (event) {
                 userChoiceArray.textContent = "The lucky letter was " + computerGuess.toUpperCase();
                 emotions.textContent = "";
                 document.getElementById("img_no").style.display = "block";
+                lossesText.textContent = "Not this time, budy..";
                 
 
 
