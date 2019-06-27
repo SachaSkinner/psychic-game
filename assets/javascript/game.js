@@ -14,6 +14,8 @@ var guessesLeft = document.getElementById("guesses-left");
 var userChoiceArray = document.getElementById("user-guesses");
 var emotions = document.getElementById("emotions");
 var button = "<button onclick=\"resetGame()\">Try again</button>";
+var img_yes = document.getElementById("img_yes");
+var img_no = document.getElementById("img_no");
 
 function random_character() {
     return letters.substr(Math.floor(Math.random() * letters.length), 1);
@@ -37,6 +39,7 @@ document.onkeyup = function (event) {
             gameInProgress = false;
             directionsText.innerHTML = button;
             userChoiceArray.textContent = "The cool letter was " + computerGuess.toUpperCase();
+            document.getElementById("img_yes").style.display = "block";
         }
 
         else if (userGuess !== computerGuess) {
@@ -55,6 +58,7 @@ document.onkeyup = function (event) {
                 directionsText.innerHTML = button;
                 userChoiceArray.textContent = "The lucky letter was " + computerGuess.toUpperCase();
                 emotions.textContent = "";
+                document.getElementById("img_no").style.display = "block";
                 
 
 
@@ -64,9 +68,6 @@ document.onkeyup = function (event) {
 }
 
 function resetGame(){
-    
-
-    // button =  directionsText;
     
   
     wins = 0;
@@ -83,7 +84,8 @@ function resetGame(){
     guessesLeft.textContent = "";
 
     computerGuess = random_character();
-    
+    document.getElementById("img_no").style.display = "none";
+    document.getElementById("img_yes").style.display = "none";
 }
 
 

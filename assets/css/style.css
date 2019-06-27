@@ -1,5 +1,5 @@
 body {
-    text-align: center;
+    
     background-image: url("../images/lake.jpg");
     background-repeat: no-repeat;
 } 
@@ -13,3 +13,29 @@ body {
     border: 3px solid rgb(68, 55, 38);
     border-style: double;
     border-radius: 25px;
+    overflow: hidden;
+    
+}
+
+.img_yes {
+    
+    width: 200px;
+    height: 250px;
+    display: none;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+   
+
+}
+.img_no {
+    width: 250px;
+    height: 250px;
+    display: none;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+   
+
+
+}
