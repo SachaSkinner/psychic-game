@@ -13,11 +13,12 @@
 </head>
 
 <body>
-    <audio src="assets/my_music.mp3" autoplay>
-        <p>If you are reading this, it is because your browser does not support the audio element. </p>
-        <embed src="assets/my_music.mp3" width="180" height="90" hidden="true" />
-    </audio>
+        
+        <iframe src="assets/my_music.mp3" allow="autoplay loop" style="display:none" id="iframeAudio">
+        </iframe> 
+    
     <div class="my_container">
+            
         <h1>The Psychic Game</h1>
         <h3>Guess what letter I am thinking of!... :)</h3>
         <p id="directions">Press any letter to start playing with me!</p>

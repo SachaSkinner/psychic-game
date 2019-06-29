@@ -30,6 +30,7 @@ document.onkeyup = function (event) {
     console.log(userGuess);
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     // console.log(guesses_now);
+   
 
     if (letters.includes(userGuess) && gameInProgress === true) {        
         if (userGuess === computerGuess) {
