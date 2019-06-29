@@ -1,7 +1,7 @@
 // variables for wins, losses, guesses left and so far now , and letters
 var wins = 0;
 var losses = 0;
-var guesses_left = 20;
+var guesses_left = 10;
 var guesses_now = [];
 var gameInProgress = true;
 var letters = "abcdefghijklmnopqrstuvwxyz";
