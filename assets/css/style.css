@@ -2,6 +2,8 @@ body {
     
     background-image: url("../images/lake.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 } 
 .my_container {
     margin-left: auto;

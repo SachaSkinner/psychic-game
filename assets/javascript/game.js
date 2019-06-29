@@ -4,7 +4,7 @@ var losses = 0;
 var guesses_left = 20;
 var guesses_now = [];
 var gameInProgress = true;
-var letters = "abcdefghijklmnopqrstuvwxyz"
+var letters = "abcdefghijklmnopqrstuvwxyz";
 // connections with html file by id
 // diractions - it will disappear when a key is pressed
 var directionsText = document.getElementById("directions");
@@ -16,9 +16,11 @@ var emotions = document.getElementById("emotions");
 var button = "<button onclick=\"resetGame()\">Try again</button>";
 var img_yes = document.getElementById("img_yes");
 var img_no = document.getElementById("img_no");
+var oops = document.getElementById("oops");
 
 function random_character() {
-    return letters.substr(Math.floor(Math.random() * letters.length), 1);
+    // return letters.substr(Math.floor(Math.random() * letters.length), 1);
+    return letters.charAt(Math.floor(Math.random() * letters.length));
 }
 var computerGuess = random_character();
 // main function 
@@ -43,15 +45,22 @@ document.onkeyup = function (event) {
         }
 
         else if (userGuess !== computerGuess) {
-            directionsText.textContent = "";
-            losses++;
-            guesses_left--;
-            lossesText.textContent = "Losses: " + losses;
-            emotions.textContent = "Nope! Keep going!";
-            guessesLeft.textContent = "Guesses Left: " + guesses_left;
             // needed to put pushing before the next line
-            guesses_now.push(userGuess)
-            userChoiceArray.textContent = "Your guesses so far: " + guesses_now;
+            if (guesses_now.includes(userGuess)) {
+                oops.textContent = "Oops.. You already played this letter!";
+            } else {
+                directionsText.textContent = "";
+                losses++;
+                guesses_left--;
+                lossesText.textContent = "Losses: " + losses;
+                emotions.textContent = "Nope! Keep going!";
+                guessesLeft.textContent = "Guesses Left: " + guesses_left;
+                oops.textContent = "";
+
+                guesses_now.push(userGuess)
+                userChoiceArray.textContent = "Your guesses so far: " + guesses_now.join(" ");
+            }
+            
             
             if (guesses_left <= 0) {                
                 gameInProgress = false;
