@@ -1,2 +1,4 @@
 # psychic-game
-my first game with JavaScript
+My first game with JavaScript.
+
+Guess a letter and see what happens!
