@@ -41,6 +41,8 @@ document.onkeyup = function (event) {
             winsText.textContent = "Wins: " + wins;
             emotions.textContent = "Woohoo!! You got it!";
             userChoiceArray.textContent = "The cool letter was " + computerGuess.toUpperCase();
+            // got ride of this text
+            oops.textContent = "";
             // game stops
             gameInProgress = false;
             // show a picture
