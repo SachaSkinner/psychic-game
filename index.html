@@ -7,20 +7,22 @@
     <title>The Psychic Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!-- bootstrap link - for some reason it makes paragraths look better - responsive and bigger for the size of my_container -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
 </head>
 
 <body>
-        
-        <iframe src="assets/my_music.mp3" allow="autoplay loop" style="display:none" id="iframeAudio">
-        </iframe> 
-    
+    <!-- background music, autoplay - iframe because google does not let autoplay for <audio> for some reason -->
+    <iframe src="assets/my_music.mp3" allow="autoplay loop" style="display:none" id="iframeAudio">
+    </iframe>
+
     <div class="my_container">
-            
+        <!-- constant elements -->
         <h1>The Psychic Game</h1>
         <h3>Guess what letter I am thinking of!... :)</h3>
+        <!-- elements to be changes with js -->
         <p id="directions">Press any letter to start playing with me!</p>
         <p id="emotions"></p>
         <p id="wins-text"> </p>
@@ -28,13 +30,14 @@
         <p id="guesses-left"> </p>
         <p id="oops"></p>
         <p id="user-guesses"></p>
+        <!-- pictures -->
         <img id="img_yes" class="img_yes" src="assets/images/yes.jpg">
         <img id="img_no" class="img_no" src="assets/images/cutie1.jpg">
     </div>
 
 
 </body>
-
+<!-- needed to put it on the bottom because js was running before and did not see html id-s to read them  -->
 <script src="assets/javascript/game.js"></script>
 
 </html>

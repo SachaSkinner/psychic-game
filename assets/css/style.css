@@ -41,6 +41,7 @@ body {
 
 
 }
+/* it styled my button even though I had (created) it only in javascript file */
 button {
     padding: 10px;   
 }
